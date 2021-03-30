@@ -14,7 +14,7 @@ A React and Redux application that will help organize and manage a bookstore.
 
 ## Live Demo
 
-[Live Demo Link](https://stark-taiga-18224.herokuapp.com/)
+[Live Demo Link](https://perisbookstore.herokuapp.com/)
 
 ## Prerequisites
 1. [Node](https://nodejs.org/en/)
