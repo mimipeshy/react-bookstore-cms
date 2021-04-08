@@ -1,70 +1,54 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { createBook } from '../actions/index';
 
-const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
+const BooksForm = ({ createBook }) => {
+  const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
 
-class BooksForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-      category: categories[0],
-    };
-  }
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('Action');
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    if (e.target.id === 'title') {
+      setTitle(e.target.value);
+    } else {
+      setCategory(e.target.value);
+    }
   };
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const book = {
-      ...this.state, id: Math.floor(Math.random() * 1000),
-    };
-
-    const { createBook } = this.props;
-
-    createBook(book);
-    this.resetForm();
+    createBook({ id: Math.floor(Math.random() * 1000), title, category });
+    setTitle('');
+    setCategory('Action');
   };
 
-  resetForm = () => {
-    this.setState({
-      id: '',
-      title: '',
-      category: '',
-    });
-  }
-
-  render() {
-    const { title, category } = this.state;
-    return (
-      <div>
-        <p>{title}</p>
-
-        <form onSubmit={this.handleSubmit}>
-          <input name="title" type="text" value={title} onChange={this.handleChange} />
-          <select name="category" value={category} onChange={this.handleChange}>
-            {categories && categories.map((category) => (
-              <option key={category}>{category}</option>
-            ))}
-          </select>
-          <button type="submit">Submit</button>
-        </form>
-
-      </div>
-    );
-  }
-}
-
-BooksForm.propTypes = {
-  createBook: PropTypes.instanceOf(Function).isRequired,
+  return (
+    <form>
+      <label htmlFor="title">
+        Title:
+        <input type="text" name="title" id="title" onChange={handleChange} value={title} />
+      </label>
+      <label htmlFor="category">
+        Category:
+        <select id="category" value={category} onChange={handleChange}>
+          {categories.map((cat) => (
+            <option value={cat} key={cat}>{cat}</option>
+          ))}
+        </select>
+      </label>
+      <input type="submit" value="Submit" onClick={handleSubmit} />
+    </form>
+  );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  createBook: (book) => dispatch(createBook(book)),
-});
+BooksForm.propTypes = {
+  createBook: PropTypes.func.isRequired,
+};
 
-export default connect(null, mapDispatchToProps)(BooksForm);
+const mapDispatch = {
+  createBook,
+};
+
+export default connect(null, mapDispatch)(BooksForm);
