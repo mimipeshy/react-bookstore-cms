@@ -15,8 +15,9 @@ const Book = ({ book, clickHandler }) => {
     </tr>
   );
 };
+
 Book.propTypes = {
-  book: PropTypes.string.isRequired,
+  book: PropTypes.objectOf(PropTypes.any).isRequired,
   clickHandler: PropTypes.func.isRequired,
 };
 
