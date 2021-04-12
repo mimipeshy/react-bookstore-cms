@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -6,16 +7,16 @@ import { removeBook, changeFilter } from '../actions/index';
 import CategoryFilter from '../components/CategoryFilter';
 
 const BookLists = ({
-  books, removeBook, filter, changeFilter,
+  books, changeFilter, filter, removeBook,
 }) => {
-  const handleRemoveBook = (book) => {
-    removeBook(book);
-  };
   const handleFilterChange = (filter) => {
     changeFilter(filter);
   };
-  const renderBooks = filter.length > 1 ? books : books.filter((book) => book.category === filter[0]);
 
+  const handleRemoveBook = (book) => {
+    removeBook(book);
+  };
+  const renderBooks = filter.length > 1 ? books : books.filter((book) => book.category === filter[0]);
   return (
     <>
       <CategoryFilter clickHandle={handleFilterChange} filter={filter} />
@@ -25,24 +26,22 @@ const BookLists = ({
             <th>Book ID</th>
             <th>Title</th>
             <th>Category</th>
-            <th>Remove the book</th>
           </tr>
         </thead>
         <tbody>
           {renderBooks.map((book) => (
-            <Book book={book} key={book.id} clickHandler={handleRemoveBook} />
+            <Book book={book} clickHandler={handleRemoveBook} key={book.id} />
           ))}
         </tbody>
       </table>
     </>
   );
 };
-
 BookLists.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
-  removeBook: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
   changeFilter: PropTypes.func.isRequired,
+  removeBook: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -53,4 +52,5 @@ const mapStateToProps = (state) => ({
 const mapDispatch = {
   removeBook, changeFilter,
 };
+
 export default connect(mapStateToProps, mapDispatch)(BookLists);
