@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions/index';
+import '../index.css';
 
 const BooksForm = ({ createBook }) => {
   const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
@@ -25,21 +26,24 @@ const BooksForm = ({ createBook }) => {
   };
 
   return (
-    <form>
-      <label htmlFor="title">
-        Title:
-        <input type="text" name="title" id="title" onChange={handleChange} value={title} />
-      </label>
-      <label htmlFor="category">
-        Category:
-        <select id="category" value={category} onChange={handleChange}>
-          {categories.map((cat) => (
-            <option value={cat} key={cat}>{cat}</option>
-          ))}
-        </select>
-      </label>
-      <input type="submit" value="Submit" onClick={handleSubmit} />
-    </form>
+    <div className="create-book">
+      <p className="Line-4" />
+      <span className="add-new-book-text warm-grey">ADD NEW BOOK</span>
+      <form className="form">
+        <label htmlFor="title">
+          <input type="text" placeholder="Book title" id="title" onChange={handleChange} value={title} className="title-input" />
+        </label>
+        <label htmlFor="category">
+          <select id="category" value={category} onChange={handleChange} className="category-input">
+            {categories.map((cat) => (
+              <option value={cat} key={cat}>{cat}</option>
+            ))}
+          </select>
+        </label>
+        <input type="submit" value="ADD BOOK" onClick={handleSubmit} className="add-book-button azure" />
+      </form>
+    </div>
+
   );
 };
 

@@ -1,19 +1,53 @@
+@font-face {
+  font-family: montserratBold;
+  font-style: normal;
+  font-weight: 700;
+  src: url(../src/fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: montserratRegular;
+  font-style: normal;
+  font-weight: normal;
+  src: url(../src/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: robotoSlabRegular;
+  font-style: normal;
+  font-weight: 400;
+  src: url(..src/fonts/RobotoSlab-Regular.ttf);
+}
+
+@font-face {
+  font-family: robotoSlabBold;
+  font-style: normal;
+  font-weight: 400;
+  src: url(..src/fonts/RobotoSlab-Bold.ttf);
+}
+
+@font-face {
+  font-family: robotoSlabLight;
+  font-style: normal;
+  font-weight: 300;
+  src: url(..src/fonts/RobotoSlab-Light.ttf);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
+  font-family: robotoSlab, "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 code {
@@ -22,6 +56,182 @@ code {
     Menlo,
     Monaco,
     Consolas,
-    'Courier New',
+    "Courier New",
     monospace;
+}
+
+.azure {
+  color: #0290ff;
+}
+
+.white {
+  color: #fff;
+}
+
+.black-two {
+  color: #121212;
+}
+
+.warm-grey {
+  color: #888;
+}
+
+.panel-bg {
+  width: 1400px;
+  height: 95px;
+  margin: 0 0 38px;
+  padding: 23px 99px 27px 100px;
+  background-color: white;
+}
+
+.booklist-and-heaader {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 99px;
+  background-color: white;
+  padding-left: 100px;
+}
+
+.header-navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 95px;
+}
+
+.bookstore-cms {
+  width: 240px;
+  height: 37px;
+  margin: 6px 47px 2px 0;
+  font-family: montserratBold;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.book-header {
+  width: 59px;
+  height: 16px;
+  margin: 18px 41px 11px 0;
+  font-family: montserratRegular;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 1.9px;
+}
+
+.books-list {
+  padding-left: 100px;
+  padding-right: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .user-icon {
+  width: 47px;
+  height: 47px;
+  background-color: var(--azure);
+} */
+.react-icons {
+  height: 60px;
+}
+
+.Oval {
+  width: 45px;
+  height: 45px;
+  padding: 14px;
+  border: solid 1px #e8e8e8;
+  border-radius: 30px;
+}
+
+.create-book {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.Line-4 {
+  width: 100%;
+  height: 2px;
+  margin: 40px 1px 29px 0;
+  border: solid 1px #e8e8e8;
+}
+
+.add-new-book-text {
+  width: 174px;
+  height: 24px;
+  margin: 29px 524px 19px 0;
+  font-family: montserratBold;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.18px;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form .title-input {
+  width: 664px;
+  height: 45px;
+  margin: 19px 34px 0 0;
+  padding: 13px 571px 13px 17px;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: #fff;
+}
+
+.form .category-input {
+  width: 265px;
+  height: 45px;
+  border-radius: 4px;
+  margin-top: 19px;
+
+  /* margin: 19px 34px 0; */
+  border: solid 1px #e8e8e8;
+  background-color: #fff
+
+  /* width: 285px;
+  height: 45px;
+  margin: 19px 34px 0;
+  padding: 6px 15px 9px 16px;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: white; */
+}
+
+.form .add-book-button {
+  width: 143px;
+  height: 45px;
+  text-align: center;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #0290ff;
+  font-family: 'RobotoSlab', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  border-color: #0290ff;
+  margin-top: 19px;
 }

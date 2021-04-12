@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import '../index.css';
 
 const Book = ({ book, clickHandler }) => {
   const removeBook = () => {
