@@ -11,8 +11,6 @@ const rootReducer = combineReducers({ books: bookReducer, filter: filterReducer 
 
 const store = createStore(rootReducer);
 
-
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
