@@ -11,7 +11,7 @@ const initialBooks = [
   },
   {
     id: Math.floor(Math.random() * 1000),
-    title: 'Genghis Khan and the Making of the Modern World',
+    title: 'The History of the Ancient World',
     category: 'History',
   },
   {
