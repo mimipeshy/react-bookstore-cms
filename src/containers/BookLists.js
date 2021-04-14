@@ -27,7 +27,7 @@ const BookLists = ({
           <h2 className="book-header black-two">Books</h2>
           <CategoryFilter clickHandle={handleFilterChange} filter={filter} />
         </div>
-        <FaUserCircle className="azure Oval" />
+        <FaUserCircle className="user-icon azure" />
       </div>
       <div className="books-list">
         {renderBooks.map((book) => (
