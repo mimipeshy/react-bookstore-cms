@@ -25,6 +25,12 @@
   font-weight: 400;
   src: url(../src/fonts/RobotoSlab-Bold.ttf);
 }
+@font-face {
+  font-family: robotoSlabLight;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../src/fonts/RobotoSlab-Light.ttf);
+}
 
 *,
 *::after,
@@ -32,8 +38,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
-  /* overflow-x: hidden; */
 }
 
 body {
@@ -56,7 +60,12 @@ code {
     "Courier New",
     monospace;
 }
-
+a{
+  text-decoration: none;
+  color: #4386bf;
+  font-weight: 300;
+  font-size: 13px;
+}
 .azure {
   color: #0290ff;
 }
@@ -136,21 +145,31 @@ code {
   flex-direction: column;
 }
 
-/* .user-icon {
-  width: 47px;
-  height: 47px;
-  background-color: var(--azure);
-} */
-.react-icons {
-  height: 60px;
+.stroke {
+  transition: 0.35s stroke-dashoffset;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
 }
-
 .Oval {
   width: 45px;
   height: 45px;
   padding: 14px;
   border: solid 1px #e8e8e8;
   border-radius: 30px;
+}
+
+.author{
+  width: 107px;
+  height: 19px;
+  margin: 4px 0 0;
+  font-family: robotoSlabLight;
+  font-size: 14px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4386bf;
 }
 
 .create-book {
@@ -160,15 +179,19 @@ code {
 
 .Line-2 {
   width: 2px;
+  height: 24px;
+  margin-right: 82px;
+  padding-right: 6px;
+  border-right: solid 1px #e8e8e8;
+  /* width: 2px;
   height: 10px;
-  margin: 12px 17px 0 15px;
+  margin: 12px 17px 0 15px; */
 }
 
 .Line-3 {
   width: 2px;
   height: 70px;
-
-  /* margin: 18px 59px 0 79px; */
+  margin: 18px 42px 0 9px;
   border: solid 1px #e8e8e8;
 }
 
@@ -217,14 +240,6 @@ code {
   margin-top: 19px;
   border: solid 1px #e8e8e8;
   background-color: #fff
-
-  /* width: 285px;
-  height: 45px;
-  margin: 19px 34px 0;
-  padding: 6px 15px 9px 16px;
-  border-radius: 4px;
-  border: solid 1px #e8e8e8;
-  background-color: white; */
 }
 
 .form .add-book-button {
@@ -245,16 +260,22 @@ code {
   margin-top: 19px;
 }
 
+.display-books{
+  width: 1200px;
+  height: 170px;
+  margin: 37px 100px 0;
+  padding: 32px 147px 26px 27px;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: white;
+}
+
 .book-ul {
   background-color: #fff;
   color: #121212;
   list-style: none;
-  margin-top: 7.5px;
-  margin-bottom: 7.5px;
-  padding-top: 32px;
-  padding-bottom: 20px;
-  padding-right: 50px;
-  padding-left: 27px;
+  margin: 27px 1px 0px 5px;
+  padding: 22px 14px 26px 27px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -345,6 +366,12 @@ code {
   margin: 0 5px;
 }
 
+.percentage-box {
+  width: 150px;
+  position: absolute;
+  left: calc(60% - 150px);
+}
+
 .percentage {
   width: 47px;
   height: 39px;
@@ -352,10 +379,6 @@ code {
   font-family: montserratRegular, sans-serif;
   font-size: 32px;
   font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
 }
 
 .percent-complete {
@@ -365,39 +388,35 @@ code {
   opacity: 0.5;
   font-family: montserratRegular, sans-serif;
   font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: var(--black-two);
 }
 
-.current-chapter-text {
-  width: 136px;
-  height: 18px;
-  margin: 1px 58px 0 59px;
-  opacity: 0.5;
+.current-chapter-box .current-chapter-text {
   font-family: robotoSlabRegular, sans-serif;
   font-size: 13px;
-  font-weight: 300;
+  margin: 5px 0px 5px 9px;
+  width: 136px;
+  height: 18px;
+  opacity: 0.5;
 }
 
-.current-chapter-number {
+.current-chapter-box .current-chapter-number {
   width: 75px;
   height: 21px;
-  margin: 7px 109px 4px 59px;
   font-family: robotoSlabRegular, sans-serif;
-  font-size: 16px;
-  font-weight: 300;
+  margin: 5px 0px 35px 9px;
   letter-spacing: -0.4px;
+
 }
 
 .update-button {
-  width: 184px;
+ width: 184px;
   height: 33px;
-  margin: 12px 0 9px 59px;
+  /* margin: 12px 0 9px -2px; */
+  margin-right: 94px;
   padding: 7px 19px 8px 22px;
+  border: 1px solid #0290ff;
   border-radius: 3px;
   background-color: #0290ff;
+  font-family: robotoSlabLight, sans-serif; 
+
 }
