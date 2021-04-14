@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../index.css';
 
-const categories = ['All', 'Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
+const categories = ['CATEGORIES', 'Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
 const CategoryFilter = ({ clickHandle, filter }) => {
   const changeHandle = (e) => {
     if (e.target.value === 'All') {
@@ -11,11 +12,13 @@ const CategoryFilter = ({ clickHandle, filter }) => {
     }
   };
   return (
-    <select id="filter" value={filter} onChange={changeHandle}>
-      {categories.map((cat) => (
-        <option value={cat} key={cat}>{cat}</option>
-      ))}
-    </select>
+    <div className="black-two">
+      <select className="top-category" id="filter" value={filter} onChange={changeHandle}>
+        {categories.map((cat) => (
+          <option value={cat} key={cat}>{cat}</option>
+        ))}
+      </select>
+    </div>
   );
 };
 

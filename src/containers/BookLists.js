@@ -2,9 +2,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { FaUserCircle } from 'react-icons/fa';
 import Book from './Book';
 import { removeBook, changeFilter } from '../actions/index';
 import CategoryFilter from '../components/CategoryFilter';
+import '../index.css';
 
 const BookLists = ({
   books, changeFilter, filter, removeBook,
@@ -18,23 +20,27 @@ const BookLists = ({
   };
   const renderBooks = filter.length > 1 ? books : books.filter((book) => book.category === filter[0]);
   return (
-    <>
-      <CategoryFilter clickHandle={handleFilterChange} filter={filter} />
-      <table>
-        <thead>
-          <tr>
-            <th>Book ID</th>
-            <th>Title</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          {renderBooks.map((book) => (
-            <Book book={book} clickHandler={handleRemoveBook} key={book.id} />
-          ))}
-        </tbody>
-      </table>
-    </>
+    <div className="booklist-and-header">
+      <div className="header">
+        <div className="header-navbar">
+          <h1 className="bookstore-cms azure">Bookstore CMS</h1>
+          <h2 className="book-header black-two">Books</h2>
+          <CategoryFilter clickHandle={handleFilterChange} filter={filter} />
+        </div>
+        <FaUserCircle className="user-icon azure" />
+      </div>
+      <div className="books-list">
+        {renderBooks.map((book) => (
+          <Book
+            book={book}
+            clickHandler={handleRemoveBook}
+            key={book.id}
+            completedProject={book.completedProject}
+            currentChapter={book.currentChapter}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 BookLists.propTypes = {

@@ -1,6 +1,10 @@
 # React-bookstore-cms
 A React and Redux application that will help organize and manage a bookstore.
 
+# Screenshot
+
+![screenshot](./screenshot.png)
+
 ## Built With
 
 - Node.js
